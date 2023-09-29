@@ -41,7 +41,7 @@ LogBox.ignoreLogs([
 ]);
 
 const fill = {flex: 1};
-const test = 1;
+const test = 2;
 
 function App() {
     useDefaultDragAndDrop();
