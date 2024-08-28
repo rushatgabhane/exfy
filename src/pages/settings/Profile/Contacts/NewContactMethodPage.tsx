@@ -49,7 +49,7 @@ function NewContactMethodPage({loginList, route}: NewContactMethodPageProps) {
 
             User.addNewContactMethodAndNavigate(submitDetail, route.params.backTo);
         },
-        [route.params.backTo],
+        [route?.params?.backTo],
     );
 
     const validate = React.useCallback(
