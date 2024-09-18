@@ -88,9 +88,9 @@ function MenuItemList({
                     onClose={menuItemProps.onPendingActionDismiss}
                     errors={menuItemProps.error}
                     shouldForceOpacity={menuItemProps.shouldForceOpacity}
+                    key={menuItemProps.key ?? menuItemProps.title}
                 >
                     <MenuItem
-                        key={menuItemProps.key ?? menuItemProps.title}
                         wrapperStyle={wrapperStyle}
                         onSecondaryInteraction={menuItemProps.link !== undefined ? (e) => secondaryInteraction(menuItemProps.link, e) : undefined}
                         ref={popoverAnchor}
