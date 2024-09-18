@@ -14,6 +14,7 @@ import Navigation from '@libs/Navigation/Navigation';
 import NotFoundPage from '@pages/ErrorPage/NotFoundPage';
 import * as Subscription from '@userActions/Subscription';
 import ONYXKEYS from '@src/ONYXKEYS';
+import isLoadingOnyxValue from '@src/types/utils/isLoadingOnyxValue';
 import CardSection from './CardSection/CardSection';
 import ReducedFunctionalityMessage from './ReducedFunctionalityMessage';
 import SubscriptionDetails from './SubscriptionDetails';
@@ -29,11 +30,13 @@ function SubscriptionSettingsPage() {
     useEffect(() => {
         Subscription.openSubscriptionPage();
     }, []);
-    const [isAppLoading] = useOnyx(ONYXKEYS.IS_LOADING_APP);
 
-    if (!subscriptionPlan && isAppLoading) {
+    const [, policiesResultData] = useOnyx(ONYXKEYS.COLLECTION.POLICY);
+    const [, sessionResultData] = useOnyx(ONYXKEYS.SESSION);
+    if (isLoadingOnyxValue(policiesResultData) || isLoadingOnyxValue(sessionResultData)) {
         return <FullScreenLoadingIndicator />;
     }
+
     if (!subscriptionPlan) {
         return <NotFoundPage />;
     }
