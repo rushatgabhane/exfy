@@ -1,11 +1,11 @@
 ---
 title: Merge Expenses
 description: Learn how to merge two expenses to eliminate duplicates and simplify your reports.
-keywords: [New Expensify, merge expenses, duplicate expenses, SmartScan, manual merge, combine expenses]
+keywords: [New Expensify, merge expenses, duplicate expenses, SmartScan, manual merge, combine expenses, combine duplicate expenses, merge receipts, expense matching]
 ---
 
 
-Merging expenses helps you quickly resolve duplicates when automatic SmartScan merges don’t catch everything. This guide walks you through manually merging two expenses from the expense view or Reports page.
+Use merging to resolve duplicates when SmartScan doesn’t catch them. This guide walks you through manually merging two expenses from the expense view or Reports page.
 
 # Merge expenses
 
@@ -47,6 +47,12 @@ To merge two expenses, they must meet all of the following:
 - If one expense is a card transaction, it will always be the one that’s kept.
 - If both are cash expenses, the one you started the merge from will be kept.
 
+## Can I change an expense from cash to credit card?
+You can’t change an expense from cash to credit card, or the other way around.  
+
+- Expenses imported directly from a connected credit card are always **credit card expenses**.  
+- Expenses you create manually, or those created from uploaded receipts, are always **cash expenses**.  
+
 # FAQ
 
 ## Can I merge two card expenses?
@@ -69,4 +75,3 @@ Check these conditions:
 - You must have permission to edit both expenses.
 - At least one expense must be a cash transaction.
 - The expenses must be editable (not submitted or fully approved).
-
