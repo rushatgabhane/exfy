@@ -1,88 +1,32 @@
 ---
 ruleId: A11Y-2
-title: Interactive elements must have appropriate accessibility roles
+title: Interactive elements should have appropriate accessibilityRole
 ---
 
-## [A11Y-2] Interactive elements must have appropriate accessibility roles
+## [A11Y-2] Interactive elements should have appropriate accessibilityRole
 
 ### Reasoning
 
-WCAG 2.1 Success Criterion 4.1.2 (Name, Role, Value) requires user interface components to have appropriate roles communicated to assistive technology. In React Native, `accessibilityRole` (or `role`) tells screen readers what type of element they're interacting with. Without proper roles, screen reader users don't know how to interact with elements or what behavior to expect.
+WCAG 2.1 SC 4.1.2 requires user interface components to have appropriate roles. In React Native, `accessibilityRole` tells screen readers what type of element they're interacting with (button, link, checkbox, switch, tab, etc.).
 
-**Valid accessibilityRole values:** `'button'`, `'link'`, `'checkbox'`, `'radio'`, `'switch'`, `'tab'`, `'menuitem'`, `'header'`, `'image'`, `'imagebutton'`, `'search'`, `'adjustable'`, `'alert'`, `'combobox'`, `'menu'`, `'menubar'`, `'progressbar'`, `'radiogroup'`, `'scrollbar'`, `'spinbutton'`, `'summary'`, `'tablist'`, `'text'`, `'timer'`, `'togglebutton'`, `'toolbar'`, `'grid'`, `'none'`
+**Valid roles:** `'button'`, `'link'`, `'checkbox'`, `'radio'`, `'switch'`, `'tab'`, `'menuitem'`, `'header'`, `'image'`, `'search'`, `'adjustable'`, `'alert'`, `'progressbar'`, `'togglebutton'`
 
 ### Incorrect
 
 ```tsx
-// Pressable acting as button without role
-<Pressable onPress={handleSubmit}>
-    <Text>Submit</Text>
-</Pressable>
-
-// Link without link role
 <Pressable onPress={() => Linking.openURL(url)}>
     <Text style={styles.link}>Visit website</Text>
-</Pressable>
-
-// Checkbox without checkbox role
-<Pressable onPress={toggleChecked}>
-    <Icon src={isChecked ? Expensicons.Checkmark : Expensicons.Square} />
-    <Text>Remember me</Text>
-</Pressable>
-
-// Tab without tab role
-<Pressable onPress={() => setActiveTab(tabId)}>
-    <Text>{tabLabel}</Text>
 </Pressable>
 ```
 
 ### Correct
 
 ```tsx
-// Button with proper role
-<Pressable
-    onPress={handleSubmit}
-    accessibilityRole="button"
-    accessibilityLabel={translate('common.submit')}
->
-    <Text>Submit</Text>
-</Pressable>
-
-// Link with proper role
 <Pressable
     onPress={() => Linking.openURL(url)}
     accessibilityRole="link"
-    accessibilityLabel={translate('common.visitWebsite')}
 >
     <Text style={styles.link}>Visit website</Text>
-</Pressable>
-
-// Checkbox with role and state
-<Pressable
-    onPress={toggleChecked}
-    accessibilityRole="checkbox"
-    accessibilityState={{checked: isChecked}}
-    accessibilityLabel={translate('common.rememberMe')}
->
-    <Icon src={isChecked ? Expensicons.Checkmark : Expensicons.Square} />
-    <Text>Remember me</Text>
-</Pressable>
-
-// Tab with role and selected state
-<Pressable
-    onPress={() => setActiveTab(tabId)}
-    accessibilityRole="tab"
-    accessibilityState={{selected: activeTab === tabId}}
->
-    <Text>{tabLabel}</Text>
-</Pressable>
-
-// Using role prop (higher precedence alternative)
-<Pressable
-    onPress={handleSubmit}
-    role="button"
->
-    <Text>Submit</Text>
 </Pressable>
 ```
 
@@ -90,24 +34,12 @@ WCAG 2.1 Success Criterion 4.1.2 (Name, Role, Value) requires user interface com
 
 ### Review Metadata
 
-Flag ONLY when ALL of these are true:
+**When reviewing:** Look for custom touchables that behave like specific UI patterns (links opening URLs, checkboxes with toggle state, tabs). Check if `accessibilityRole` matches the behavior.
 
-- Element is interactive (`Pressable`, `TouchableOpacity`, or has `onPress`)
-- Element does NOT have `accessibilityRole` or `role` prop
-- Element behavior clearly maps to a specific role (button, link, checkbox, switch, tab, menuitem, radio)
+**Use judgment:** Many wrapper components set roles internally. Only flag when the behavior clearly maps to a role but none is set.
 
-**DO NOT flag if:**
-
-- Element has `accessibilityRole` or `role` prop
-- Element uses a component that sets role internally (`Button`, `Switch`, `Checkbox`, `MenuItem`)
-- Element is a generic touchable wrapper where role is set on parent/child
-- Element has `accessible={false}`
-
-**Search Patterns** (hints for reviewers):
-- `Pressable`
-- `TouchableOpacity`
-- `onPress`
-- `accessibilityRole`
+**Search Patterns:**
 - `Linking.openURL`
 - `toggleChecked`
 - `setActiveTab`
+- `accessibilityRole`

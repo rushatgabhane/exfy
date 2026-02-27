@@ -15,7 +15,7 @@ Coding standards for the Expensify App. Each standard is a standalone file in `r
 | Performance | `PERF-*` | Render optimization, memo patterns, useEffect hygiene, data selection |
 | Consistency | `CONSISTENCY-*` | Platform checks, magic values, unused props, ESLint discipline |
 | Clean React Patterns | `CLEAN-REACT-PATTERNS-*` | Composition, component ownership, state structure |
-| Accessibility | `A11Y-*` | VPAT/WCAG 2.1 compliance, screen reader support, accessible labels and states |
+| Accessibility | `A11Y-*` | VPAT/WCAG 2.1 compliance, screen reader support |
 
 ## Quick Reference
 
@@ -52,14 +52,14 @@ Coding standards for the Expensify App. Each standard is a standalone file in `r
 - [CLEAN-REACT-PATTERNS-5](rules/clean-react-5-narrow-state.md) — Keep state narrow
 
 ### Accessibility (VPAT/WCAG 2.1 Compliance)
-- [A11Y-1](rules/a11y-1-interactive-accessible-label.md) — Interactive elements must have accessible labels
-- [A11Y-2](rules/a11y-2-accessibility-role.md) — Interactive elements must have appropriate accessibility roles
-- [A11Y-3](rules/a11y-3-accessibility-state.md) — Component states must be communicated via accessibilityState
-- [A11Y-4](rules/a11y-4-form-labels.md) — Form inputs must have accessible labels
-- [A11Y-5](rules/a11y-5-images-accessible.md) — Images must have accessible labels or be marked decorative
-- [A11Y-6](rules/a11y-6-live-region-announcements.md) — Dynamic content changes must be announced to screen readers
-- [A11Y-7](rules/a11y-7-accessibility-hint.md) — Use accessibilityHint for non-obvious actions
-- [A11Y-8](rules/a11y-8-accessibility-value.md) — Range-based components must communicate their values
+- [A11Y-1](rules/a11y-1-interactive-accessible-label.md) — Icon-only interactive elements must have accessibilityLabel
+- [A11Y-2](rules/a11y-2-accessibility-role.md) — Interactive elements should have appropriate accessibilityRole
+- [A11Y-3](rules/a11y-3-accessibility-state.md) — Stateful components should communicate state via accessibilityState
+- [A11Y-4](rules/a11y-4-form-labels.md) — TextInput must have accessibilityLabel
+- [A11Y-5](rules/a11y-5-images-accessible.md) — Meaningful images must have accessibilityLabel or be marked decorative
+- [A11Y-6](rules/a11y-6-live-region-announcements.md) — Dynamic status changes should be announced to screen readers
+- [A11Y-7](rules/a11y-7-accessibility-hint.md) — Non-obvious actions should have accessibilityHint
+- [A11Y-8](rules/a11y-8-accessibility-value.md) — Range-based components should communicate values
 
 ## Usage
 
