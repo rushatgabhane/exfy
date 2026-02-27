@@ -1,6 +1,6 @@
 ---
 name: coding-standards
-description: Provides coding standards for React Native — performance patterns, consistency rules, and clean React architecture. Use when writing, modifying, or reviewing code.
+description: Provides coding standards for React Native — performance patterns, consistency rules, clean React architecture, and VPAT/WCAG 2.1 accessibility compliance. Use when writing, modifying, or reviewing code.
 alwaysApply: true
 ---
 
@@ -15,6 +15,7 @@ Coding standards for the Expensify App. Each standard is a standalone file in `r
 | Performance | `PERF-*` | Render optimization, memo patterns, useEffect hygiene, data selection |
 | Consistency | `CONSISTENCY-*` | Platform checks, magic values, unused props, ESLint discipline |
 | Clean React Patterns | `CLEAN-REACT-PATTERNS-*` | Composition, component ownership, state structure |
+| Accessibility | `A11Y-*` | VPAT/WCAG 2.1 compliance, screen reader support, accessible labels and states |
 
 ## Quick Reference
 
@@ -49,6 +50,16 @@ Coding standards for the Expensify App. Each standard is a standalone file in `r
 - [CLEAN-REACT-PATTERNS-3](rules/clean-react-3-context-free-contracts.md) — Context-free component contracts
 - [CLEAN-REACT-PATTERNS-4](rules/clean-react-4-no-side-effect-spaghetti.md) — No side-effect spaghetti
 - [CLEAN-REACT-PATTERNS-5](rules/clean-react-5-narrow-state.md) — Keep state narrow
+
+### Accessibility (VPAT/WCAG 2.1 Compliance)
+- [A11Y-1](rules/a11y-1-interactive-accessible-label.md) — Interactive elements must have accessible labels
+- [A11Y-2](rules/a11y-2-accessibility-role.md) — Interactive elements must have appropriate accessibility roles
+- [A11Y-3](rules/a11y-3-accessibility-state.md) — Component states must be communicated via accessibilityState
+- [A11Y-4](rules/a11y-4-form-labels.md) — Form inputs must have accessible labels
+- [A11Y-5](rules/a11y-5-images-accessible.md) — Images must have accessible labels or be marked decorative
+- [A11Y-6](rules/a11y-6-live-region-announcements.md) — Dynamic content changes must be announced to screen readers
+- [A11Y-7](rules/a11y-7-accessibility-hint.md) — Use accessibilityHint for non-obvious actions
+- [A11Y-8](rules/a11y-8-accessibility-value.md) — Range-based components must communicate their values
 
 ## Usage
 
