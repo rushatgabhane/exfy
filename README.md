@@ -5,7 +5,7 @@
     <h1>
         <a href="https://new.expensify.com">
             New Expensify
-        </a>
+        </a>s
     </h1>
 </div>
 
